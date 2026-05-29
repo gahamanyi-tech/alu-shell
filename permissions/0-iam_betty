@@ -1,1 +1,3 @@
-su betty
+#!/bin/bash
+test -s README.md
+
