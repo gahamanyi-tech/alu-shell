@@ -1,1 +1,1 @@
-Shell basics project
+AU shell project
