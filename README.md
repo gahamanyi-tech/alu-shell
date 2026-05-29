@@ -1,2 +1,1 @@
-ALU shell project
-fix
+ALU shell basics project
