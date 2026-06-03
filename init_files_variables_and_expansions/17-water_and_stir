@@ -1,3 +1,2 @@
 #!/bin/bash
-echo "$WATER" | tr 'waterstir' '0123456789' | tr '0123456789' 'bestchol'
-echo "$STIR"  | tr 'waterstir' '0123456789' | tr '0123456789' 'bestchol'
+echo "$WATER$STIR" | tr 'waterstir' 'bestchol'
