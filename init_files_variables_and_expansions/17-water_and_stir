@@ -1,2 +1,4 @@
 #!/bin/bash
-echo "ibase=water; obase=bestchol; $WATER + $STIR" | bc
+WATER_DEC=$(printf "%s" "$WATER" | tr 'waterstir' '0123456789') STIR_DEC=$(printf "%s" "$STIR" | tr 
+'waterstir' '0123456789') SUM=$((WATER_DEC + STIR_DEC))
+printf "%s" "$SUM" | tr '0123456789' 'bestchol'
