@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 -c 'import os; f=lambda v,c: sum(c.index(x)*len(c)**i for i,x in enumerate(v[::-1])); n=f(os.environ.get("WATER",""),"water")+f(os.environ.get("STIR",""),"stir."); b="bestchol"; d=list(); [d.insert(0,b[n%8]) or globals().update(n=n//8) for _ in range(100) if n]; print("".join(d))'
+awk 'BEGIN{w="water";s="stir.";b="bestchol";W=ENVIRON["WATER"];S=ENVIRON["STIR"];n=0;for(i=1;i<=length(W);i++){n=n*5+index(w,substr(W,i,1))-1};for(i=1;i<=length(S);i++){n=n*5+index(s,substr(S,i,1))-1};r="";while(n>0){r=substr(b,n%8+1,1) r;n=int(n/8)};print r}' /dev/null
