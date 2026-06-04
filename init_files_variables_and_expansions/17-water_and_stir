@@ -1,3 +1,29 @@
 #!/bin/bash
-echo "$WATER" | tr 'waterstir' 'bestchol'
-echo "$STIR"  | tr 'waterstir' 'bestchol'
+python3 - <<'EOF'
+import os
+
+WATER_CHARS = "water"
+STIR_CHARS  = "stir."
+BEST_CHARS  = "bestchol"
+
+def from_base(s, charset):
+    val = 0
+    for c in s:
+        val = val * len(charset) + charset.index(c)
+    return val
+
+def to_base(n, charset):
+    if n == 0:
+        return charset[0]
+    digits = []
+    while n:
+        digits.append(charset[n % len(charset)])
+        n //= len(charset)
+    return ''.join(reversed(digits))
+
+water = os.environ.get("WATER", "")
+stir  = os.environ.get("STIR",  "")
+
+result = from_base(water, WATER_CHARS) + from_base(stir, STIR_CHARS)
+print(to_base(result, BEST_CHARS))
+EOF
