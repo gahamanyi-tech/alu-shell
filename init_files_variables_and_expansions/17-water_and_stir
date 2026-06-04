@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 -c $'import os\nf=lambda v,c: sum(c.index(x)*len(c)**i for i,x in enumerate(v[::-1]))\nn=f(os.environ.get("WATER",""),"water")+f(os.environ.get("STIR",""),"stir.")\nb="bestchol"\nd=[b[0]]\nexec("while n:\\n d.insert(0,b[n%8])\\n n//=8")\nprint("".join(d))'
+python3 -c $'import os\nf=lambda v,c: sum(c.index(x)*len(c)**i for i,x in enumerate(v[::-1]))\nn=f(os.environ.get("WATER",""),"water")+f(os.environ.get("STIR",""),"stir.")\nb="bestchol"\nd=[]\nexec("while n:\\n d.insert(0,b[n%8])\\n n//=8")\nprint("".join(d) or b[0])'
